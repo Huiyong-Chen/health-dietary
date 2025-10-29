@@ -6,8 +6,8 @@
   "main": "",
   "types": "./index.mts",
   "scripts": {
-    "build": "tsdown src --dts",
-    "dev": "tsdown src --dts --watch"
+    "build": "tsdown ",
+    "dev": "tsdown --watch"
   },
   "exports": {
     "./router": {

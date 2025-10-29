@@ -1,9 +1,9 @@
 import { z } from 'zod';
-import { publicProcedure, router } from '../trpc.mts';
+import { procedure, router } from '../trpc.mts';
 
 export const userRouter = router({
   // 定义一个 "create" 的 "mutation" (用于创建/修改数据)
-  create: publicProcedure
+  create: procedure
     // 1. 使用 Zod 定义输入校验
     .input(
       z.object({
