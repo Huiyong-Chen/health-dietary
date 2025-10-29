@@ -1,4 +1,4 @@
-import { appRouter } from '@health-dietary/api/src/router.mts';
+import { appRouter } from '@health-dietary/api/router';
 import { trpcServer } from '@hono/trpc-server';
 import { Hono } from 'hono';
 import { createContext } from './context.mts';
