@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// === 数据模型定义 ===
+
+// 用户模型
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // 我们将存储哈希后的密码
+  nickname  String?  // ? 表示可选字段
+  avatarUrl String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 关系：一个用户可以有一个健康档案
+  healthProfile HealthProfile?
+}
+
+// 健康档案模型
+model HealthProfile {
+  id      String @id @default(cuid())
+  userId  String @unique // 与 User 表的关联外键
+
+  // 关系：定义与 User 的一对一关系
+  user User @relation(fields: [userId], references: [id])
+
+  // 基础信息
+  heightCm      Float? // 身高 (cm)
+  weightKg      Float? // 体重 (kg)
+  age           Int?
+  gender        Gender? // 使用枚举类型
+  activityLevel ActivityLevel? // 使用枚举类型
+
+  // 目标
+  goal Goal? // 使用枚举类型
+}
+
+// --- 枚举类型 ---
+// 使用枚举可以规范可选项，提供更好的类型安全
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum ActivityLevel {
+  SEDENTARY       // 久坐
+  LIGHTLY_ACTIVE  // 轻度活跃
+  MODERATELY_ACTIVE // 中度活跃
+  VERY_ACTIVE     // 非常活跃
+  EXTRA_ACTIVE    // 极其活跃
+}
+
+enum Goal {
+  WEIGHT_LOSS // 减脂
+  WEIGHT_GAIN // 增肌
+  MAINTAIN    // 维持
+}

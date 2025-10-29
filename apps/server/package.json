@@ -1,0 +1,31 @@
+{
+  "name": "@health-dietary/server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "dev": "tsx watch src/index.mts",
+    "build": "tsdown src/index.mts",
+    "start": "node dist/index.mjs",
+    "db:migrate:dev": "dotenv -e .env -- prisma migrate dev",
+    "db:generate": "dotenv -e .env -- prisma generate",
+    "db:studio": "dotenv -e .env -- prisma studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "@hono/trpc-server": "^0.4.0",
+    "@prisma/client": "^6.18.0",
+    "@trpc/server": "^11.7.1",
+    "hono": "^4.10.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "prisma": "^6.18.0",
+    "tsx": "^4.20.6"
+  }
+}

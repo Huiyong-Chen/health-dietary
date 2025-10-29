@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.json", // 继承根配置
+  "compilerOptions": {
+    "outDir": "dist" // 指定编译输出目录
+  },
+  "include": ["src/**/*.mts"], // 指定需要编译的文件
+  "exclude": ["node_modules", "dist"]
+}

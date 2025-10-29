@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint';
 export default [
   // 全局忽略配置
   {
-    ignores: ['**/node_modules/**', '**/dist/**'],
+    ignores: ['**/node_modules/**', '**/dist/**', '**/generated/**'],
   },
 
   // ESLint 官方推荐的基础规则
