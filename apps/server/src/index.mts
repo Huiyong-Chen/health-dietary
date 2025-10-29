@@ -1,6 +1,7 @@
+import { appRouter } from '@health-dietary/api/src/router.mts';
 import { trpcServer } from '@hono/trpc-server';
 import { Hono } from 'hono';
-import { appRouter } from './trpc/router.mjs';
+import { createContext } from './context.mts';
 
 const app = new Hono();
 
@@ -10,6 +11,7 @@ app.use(
   '/trpc/*',
   trpcServer({
     router: appRouter,
+    createContext,
   })
 );
 

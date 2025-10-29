@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist" // 指定编译输出目录
+  },
+  "include": ["src/**/*.mts"],
+  "exclude": ["node_modules", "dist"]
+}

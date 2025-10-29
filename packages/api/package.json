@@ -1,0 +1,33 @@
+{
+  "name": "@health-dietary/api",
+  "version": "1.0.0",
+  "description": "前后端共享的 tRPC API 类型定义",
+  "type": "module",
+  "main": "",
+  "types": "./index.mts",
+  "scripts": {
+    "build": "tsdown src --dts",
+    "dev": "tsdown src --dts --watch"
+  },
+  "exports": {
+    "./router": {
+      "types": "./dist/router.d.mts",
+      "import": "./dist/router.mjs"
+    },
+    "./trpc": {
+      "types": "./dist/trpc.d.mts",
+      "import": "./dist/trpc.mjs"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "@trpc/server": "^11.7.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.18.0"
+  }
+}

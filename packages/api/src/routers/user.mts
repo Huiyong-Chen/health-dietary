@@ -1,6 +1,5 @@
 import { z } from 'zod';
-import { db } from '../../db.mts';
-import { publicProcedure, router } from '../index.mts';
+import { publicProcedure, router } from '../trpc.mts';
 
 export const userRouter = router({
   // 定义一个 "create" 的 "mutation" (用于创建/修改数据)
@@ -15,8 +14,8 @@ export const userRouter = router({
       })
     )
     // 2. 定义处理该 API 请求的函数
-    .mutation(async ({ input }) => {
-      const user = await db.user.create({
+    .mutation(async ({ ctx, input }) => {
+      const user = await ctx.db.user.create({
         data: {
           email: input.email,
           nickname: input.nickname,
