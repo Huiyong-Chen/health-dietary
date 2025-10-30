@@ -8,4 +8,5 @@ export default defineConfig({
   },
   // 开启 .d.ts 类型定义文件的生成
   dts: true,
+  clean: true,
 });

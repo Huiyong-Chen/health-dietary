@@ -1,26 +1,31 @@
 {
   "compilerOptions": {
     /* Type Checking */
-    "strict": true, // 开启所有严格的类型检查
-    "noUnusedLocals": true, // 报告未使用的局部变量
-    "noUnusedParameters": true, // 报告未使用的参数
-    "noFallthroughCasesInSwitch": true, // 确保 switch 语句中的 case 都包含 break 或 return
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
 
     /* Modules */
-    "module": "NodeNext", // 关键：使用最新的 Node.js ESM 模块系统
-    "moduleResolution": "NodeNext", // 关键：与 module 设置匹配的模块解析策略
-    "resolveJsonModule": true, // 允许导入 .json 文件
-    "allowImportingTsExtensions": true, // 关键：允许我们 import './file.mts'
-    "noEmit": true, // 关键：tsc 只用于类型检查，不生成任何 JS 文件
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@health-dietary/api/*": ["packages/api/src/*"],
+      "@health-dietary/config/*": ["packages/config/src/*"]
+    },
 
     /* Interop Constraints */
-    "esModuleInterop": true, // 允许 CommonJS 和 ES Modules 之间更好地互操作
-    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
 
     /* Language and Environment */
-    "target": "ESNext", // 编译到最新的 ECMAScript 版本
-    "lib": ["ESNext"], // 包含最新的 ES 特性库
-    "skipLibCheck": true, // 跳过对声明文件 (*.d.ts) 的类型检查
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "skipLibCheck": true,
 
     /* Other */
     "experimentalDecorators": true,

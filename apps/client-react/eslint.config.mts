@@ -20,10 +20,9 @@ export default defineConfig([
         ...globals.node,
         ...globals.browser,
       },
-      parse: tseslint.parser,
+      parser: tseslint.parser,
       parserOptions: {
         ecmaFeatures: { jsx: true },
-        project: './tsconfig.json',
       },
     },
   },

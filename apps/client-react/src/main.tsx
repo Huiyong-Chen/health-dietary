@@ -5,13 +5,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import { trpc } from './trpc.mts';
+import { clientConfig } from '@health-dietary/config/index.mts';
 
 const queryClient = new QueryClient();
 
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: 'http://localhost:3000/trpc',
+      url: clientConfig.apiUrl,
     }),
   ],
 });

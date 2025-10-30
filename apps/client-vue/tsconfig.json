@@ -3,13 +3,13 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "isolatedModules": true,
     "noEmit": true,
     "types": ["vite/client"]
   },
-  "include": ["src/**/*.ts", "src/**/*.mts", "src/**/*.tsx", "vite.config.mts"],
+  "include": ["src/**/*.ts", "src/**/*.mts", "src/**/*.vue", "vite.config.mts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build ",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -23,6 +24,7 @@
   },
   "dependencies": {
     "@health-dietary/api": "workspace:*",
+    "@health-dietary/config": "workspace:*",
     "@tanstack/react-query": "^5.90.5",
     "@trpc/client": "^11.7.1",
     "@trpc/react-query": "^11.7.1",

@@ -44,6 +44,9 @@ importers:
       '@health-dietary/api':
         specifier: workspace:*
         version: link:../../packages/api
+      '@health-dietary/config':
+        specifier: workspace:*
+        version: link:../../packages/config
       '@tanstack/react-query':
         specifier: ^5.90.5
         version: 5.90.5(react@19.2.0)
@@ -96,6 +99,9 @@ importers:
       '@health-dietary/api':
         specifier: workspace:*
         version: link:../../packages/api
+      '@health-dietary/config':
+        specifier: workspace:*
+        version: link:../../packages/config
       '@tanstack/vue-query':
         specifier: ^5.90.5
         version: 5.90.5(vue@3.5.22(typescript@5.9.3))
@@ -139,16 +145,25 @@ importers:
       '@health-dietary/api':
         specifier: workspace:*
         version: link:../../packages/api
+      '@health-dietary/config':
+        specifier: workspace:*
+        version: link:../../packages/config
       '@hono/trpc-server':
         specifier: ^0.4.0
         version: 0.4.0(@trpc/server@11.7.1(typescript@5.9.3))(hono@4.10.3)
       '@prisma/client':
         specifier: ^6.18.0
         version: 6.18.0(prisma@6.18.0(typescript@5.9.3))(typescript@5.9.3)
+      bcryptjs:
+        specifier: ^3.0.2
+        version: 3.0.2
       hono:
         specifier: ^4.10.3
         version: 4.10.3
     devDependencies:
+      '@types/bcryptjs':
+        specifier: ^3.0.0
+        version: 3.0.0
       '@types/node':
         specifier: ^24.9.2
         version: 24.9.2
@@ -173,6 +188,9 @@ importers:
       '@trpc/server':
         specifier: ^11.7.1
         version: 11.7.1(typescript@5.9.3)
+      bcryptjs:
+        specifier: ^3.0.2
+        version: 3.0.2
       zod:
         specifier: ^4.1.12
         version: 4.1.12
@@ -180,6 +198,22 @@ importers:
       '@prisma/client':
         specifier: ^6.18.0
         version: 6.18.0(prisma@6.18.0(typescript@5.9.3))(typescript@5.9.3)
+      '@types/node':
+        specifier: ^24.9.2
+        version: 24.9.2
+      tsdown:
+        specifier: ^0.15.11
+        version: 0.15.11(typescript@5.9.3)(vue-tsc@3.1.2(typescript@5.9.3))
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  packages/config:
+    dependencies:
+      zod:
+        specifier: ^4.1.12
+        version: 4.1.12
+    devDependencies:
       '@types/node':
         specifier: ^24.9.2
         version: 24.9.2
@@ -853,6 +887,10 @@ packages:
   '@types/babel__traverse@7.28.0':
     resolution: {integrity: sha512-8PvcXf70gTDZBgt9ptxJ8elBeBjcLOAcOtoO/mPJjtji1+CdGbHgm77om1GrsPxsiE+uXIpNSK64UYaIwQXd4Q==}
 
+  '@types/bcryptjs@3.0.0':
+    resolution: {integrity: sha512-WRZOuCuaz8UcZZE4R5HXTco2goQSI2XxjGY3hbM/xDvwmqFWd4ivooImsMx65OKM6CtNKbnZ5YL+YwAwK7c1dg==}
+    deprecated: This is a stub types definition. bcryptjs provides its own type definitions, so you do not need this installed.
+
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
@@ -1038,6 +1076,10 @@ packages:
 
   baseline-browser-mapping@2.8.21:
     resolution: {integrity: sha512-JU0h5APyQNsHOlAM7HnQnPToSDQoEBZqzu/YBlqDnEeymPnZDREeXJA3KBMQee+dKteAxZ2AtvQEvVYdZf241Q==}
+    hasBin: true
+
+  bcryptjs@3.0.2:
+    resolution: {integrity: sha512-k38b3XOZKv60C4E2hVsXTolJWfkGRMbILBIe2IBITXciy5bOsTKot5kDrf3ZfufQtQOUN5mXceUEpU1rTl9Uog==}
     hasBin: true
 
   birpc@2.6.1:
@@ -2468,6 +2510,10 @@ snapshots:
     dependencies:
       '@babel/types': 7.28.5
 
+  '@types/bcryptjs@3.0.0':
+    dependencies:
+      bcryptjs: 3.0.2
+
   '@types/estree@1.0.8': {}
 
   '@types/json-schema@7.0.15': {}
@@ -2711,6 +2757,8 @@ snapshots:
   balanced-match@1.0.2: {}
 
   baseline-browser-mapping@2.8.21: {}
+
+  bcryptjs@3.0.2: {}
 
   birpc@2.6.1: {}
 
