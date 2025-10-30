@@ -148,12 +148,12 @@ importers:
       '@health-dietary/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@health-dietary/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@hono/trpc-server':
         specifier: ^0.4.0
         version: 0.4.0(@trpc/server@11.7.1(typescript@5.9.3))(hono@4.10.3)
-      '@prisma/client':
-        specifier: ^6.18.0
-        version: 6.18.0(prisma@6.18.0(typescript@5.9.3))(typescript@5.9.3)
       bcryptjs:
         specifier: ^3.0.2
         version: 3.0.2
@@ -167,12 +167,6 @@ importers:
       '@types/node':
         specifier: ^24.9.2
         version: 24.9.2
-      dotenv-cli:
-        specifier: ^11.0.0
-        version: 11.0.0
-      prisma:
-        specifier: ^6.18.0
-        version: 6.18.0(typescript@5.9.3)
       tsdown:
         specifier: ^0.15.11
         version: 0.15.11(typescript@5.9.3)(vue-tsc@3.1.2(typescript@5.9.3))
@@ -185,6 +179,9 @@ importers:
 
   packages/api:
     dependencies:
+      '@health-dietary/db':
+        specifier: workspace:*
+        version: link:../db
       '@trpc/server':
         specifier: ^11.7.1
         version: 11.7.1(typescript@5.9.3)
@@ -195,9 +192,6 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12
     devDependencies:
-      '@prisma/client':
-        specifier: ^6.18.0
-        version: 6.18.0(prisma@6.18.0(typescript@5.9.3))(typescript@5.9.3)
       '@types/node':
         specifier: ^24.9.2
         version: 24.9.2
@@ -217,6 +211,28 @@ importers:
       '@types/node':
         specifier: ^24.9.2
         version: 24.9.2
+      tsdown:
+        specifier: ^0.15.11
+        version: 0.15.11(typescript@5.9.3)(vue-tsc@3.1.2(typescript@5.9.3))
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  packages/db:
+    dependencies:
+      '@prisma/client':
+        specifier: ^6.18.0
+        version: 6.18.0(prisma@6.18.0(typescript@5.9.3))(typescript@5.9.3)
+    devDependencies:
+      '@types/node':
+        specifier: ^24.9.2
+        version: 24.9.2
+      dotenv-cli:
+        specifier: ^11.0.0
+        version: 11.0.0
+      prisma:
+        specifier: ^6.18.0
+        version: 6.18.0(typescript@5.9.3)
       tsdown:
         specifier: ^0.15.11
         version: 0.15.11(typescript@5.9.3)(vue-tsc@3.1.2(typescript@5.9.3))

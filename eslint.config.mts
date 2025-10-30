@@ -6,8 +6,7 @@ import tseslint from 'typescript-eslint';
 
 // 2. 使用 defineConfig 包裹整个配置数组
 export default defineConfig([
-  // 全局忽略配置
-  globalIgnores(['**/node_modules/**', '**/dist/**']),
+  globalIgnores(['**/node_modules/**', '**/dist/**', '**/src/generated/**']),
   {
     files: ['**/*.{ts,mts}'],
     extends: [

@@ -7,3 +7,9 @@ dist
 .DS_Store
 .qoder
 nul
+
+**/generated/prisma/*
+**/prisma/*
+!**/prisma/schema.prisma
+**/generated/prisma/schema.prisma
+**/prisma-db/*

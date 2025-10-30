@@ -1,0 +1,40 @@
+{
+  "name": "@health-dietary/db",
+  "version": "1.0.0",
+  "description": "数据库 Schema 和 Prisma Client 管理",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./src/generated/prisma/index.d.ts",
+      "import": "./src/generated/prisma/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "dotenv -e ../../apps/server/.env -- prisma generate",
+    "db:migrate:dev": "dotenv -e ../../apps/server/.env -- prisma migrate dev",
+    "db:studio": "dotenv -e ../../apps/server/.env -- prisma studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "@types/node": "^24.9.2",
+    "dotenv-cli": "^11.0.0",
+    "prisma": "^6.18.0",
+    "tsdown": "^0.15.11",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0"
+  }
+}

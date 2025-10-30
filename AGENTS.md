@@ -108,8 +108,13 @@ packages/
 
 ### 配置管理
 
-**当前状态**: 存在一些硬编码配置 (端口、URL)
-**计划**: 创建 `packages/config` 并使用 zod schema 验证，使用根 `.env` 作为唯一真实来源
+**当前状态**: 项目中存在以下类型错误，和源码指向
+**计划**:
+
+- 1. 源码指向修正：package.json 的exports.types 指向真实源码文件；
+- 2. Prisma 类型共享与数据库层解耦，必须将 Prisma 的“定义”资产提取到一个独立的共享包中
+  - 1. 创建新包 packages/db: 该包的职责是管理数据库 Schema 和生成 Prisma Client。
+  - .db数据文件属于server,不应该迁移到packages/db中
 
 ## 开发指南
 

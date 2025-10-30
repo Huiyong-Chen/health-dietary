@@ -1,4 +1,4 @@
-import type { PrismaClient } from '@prisma/client/extension';
+import type { PrismaClient } from '@health-dietary/db';
 import { initTRPC } from '@trpc/server';
 
 // tRPC Context 的类型

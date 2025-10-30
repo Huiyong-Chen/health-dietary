@@ -15,7 +15,9 @@
     "baseUrl": ".",
     "paths": {
       "@health-dietary/api/*": ["packages/api/src/*"],
-      "@health-dietary/config/*": ["packages/config/src/*"]
+      "@health-dietary/config/*": ["packages/config/src/*"],
+      "@health-dietary/db": ["packages/db/src/index.mts"],
+      "@health-dietary/db/*": ["packages/db/src/*"]
     },
 
     /* Interop Constraints */

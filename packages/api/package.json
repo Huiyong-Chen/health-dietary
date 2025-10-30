@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "前后端共享的 tRPC API 类型定义",
   "type": "module",
-  "types": "./index.mts",
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
@@ -11,11 +10,11 @@
   },
   "exports": {
     "./router": {
-      "types": "./dist/router.d.ts",
+      "types": "./src/router.mts",
       "import": "./dist/router.js"
     },
     "./trpc": {
-      "types": "./dist/trpc.d.ts",
+      "types": "./src/trpc.mts",
       "import": "./dist/trpc.js"
     }
   },
@@ -24,12 +23,12 @@
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "devDependencies": {
-    "@prisma/client": "^6.18.0",
     "@types/node": "^24.9.2",
     "tsdown": "^0.15.11",
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@health-dietary/db": "workspace:*",
     "@trpc/server": "^11.7.1",
     "bcryptjs": "^3.0.2",
     "zod": "^4.1.12"
