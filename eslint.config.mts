@@ -1,4 +1,4 @@
-import js from '@eslint/js';
+import eslint from '@eslint/js';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
@@ -12,9 +12,9 @@ export default defineConfig([
     files: ['**/*.{ts,mts}'],
     extends: [
       // ESLint 官方推荐的基础规则
-      js.configs.recommended,
+      eslint.configs.recommended,
       // TypeScript-ESLint 的推荐规则
-      tseslint.configs.recommended,
+      ...tseslint.configs.recommended,
       // Prettier 配置，用来关闭和 ESLint 冲突的样式规则
       prettierRecommended,
     ],

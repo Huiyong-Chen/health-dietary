@@ -1,0 +1,29 @@
+{
+  "name": "@health-dietary/client-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@health-dietary/api": "workspace:*",
+    "@tanstack/vue-query": "^5.90.5",
+    "@trpc/client": "^11.7.1",
+    "eslint-plugin-vue": "^10.5.1",
+    "vue": "^3.5.22",
+    "vue-eslint-parser": "^10.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vue-tsc": "^3.1.0"
+  }
+}

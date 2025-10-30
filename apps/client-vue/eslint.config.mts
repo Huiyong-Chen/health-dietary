@@ -1,18 +1,14 @@
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
+import eslintPluginVue from 'eslint-plugin-vue';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
 import rootConfig from '../../eslint.config.mts';
+import tseslint from 'typescript-eslint';
+import eslintParserVue from 'vue-eslint-parser';
 
 export default defineConfig([
   {
     files: ['**/*.{ts,mts,tsx}'],
-    extends: [
-      ...rootConfig,
-      reactHooks.configs.flat['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
+    extends: [...rootConfig, ...eslintPluginVue.configs['flat/recommended']],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -20,10 +16,10 @@ export default defineConfig([
         ...globals.node,
         ...globals.browser,
       },
-      parse: tseslint.parser,
+      parser: eslintParserVue,
       parserOptions: {
+        parser: tseslint.parser,
         ecmaFeatures: { jsx: true },
-        project: './tsconfig.json',
       },
     },
   },
