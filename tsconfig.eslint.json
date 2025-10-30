@@ -1,0 +1,7 @@
+{
+  // 继承基础配置
+  "extends": "./tsconfig.base.json",
+  // 包含所有需要 lint 的文件
+  "include": ["apps", "packages"],
+  "exclude": ["node_modules", "dist"]
+}

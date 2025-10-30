@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint \"**/*.{mjs,js,mts,ts}\"",
     "lint:fix": "eslint \"**/*.{mjs,js,mts,ts}\" --fix",
-    "format": "prettier --write \"**/*.{mjs,js,mts,ts,md,json}\""
+    "format": "prettier --write \"**/*.{mjs,js,mts,ts,md,json}\"",
+    "typecheck": "pnpm --parallel --stream -r typecheck"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
   "packageManager": "pnpm@10.12.1",
   "devDependencies": {
     "@eslint/js": "^9.38.0",
+    "@types/node": "^24.9.2",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",

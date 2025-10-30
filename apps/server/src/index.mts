@@ -19,7 +19,6 @@ app.use(
 app.get('/', (c) => {
   return c.text('Hello Hono!');
 });
-
 console.log('Server is running on http://localhost:3000');
 
 export default {

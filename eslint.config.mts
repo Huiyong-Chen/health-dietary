@@ -20,8 +20,14 @@ export default defineConfig([
     ],
     // 自定义规则配置（覆盖上述所有配置）
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      ecmaVersion: 'latest',
+      globals: {
+        ...globals.node, // 根配置主要服务于 api 和 server，应使用 Node.js 全局变量
+      },
+      parser: tseslint.parser, // 声明全局的 TS 解析器
+      parserOptions: {
+        project: './tsconfig.eslint.json', // 开启全局的 project-aware linting
+      },
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',

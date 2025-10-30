@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "前后端共享的 tRPC API 类型定义",
   "type": "module",
-  "main": "",
   "types": "./index.mts",
   "scripts": {
     "build": "tsdown",
@@ -25,6 +24,7 @@
   "packageManager": "pnpm@10.12.1",
   "devDependencies": {
     "@prisma/client": "^6.18.0",
+    "@types/node": "^24.9.2",
     "tsdown": "^0.15.11",
     "typescript": "^5.9.3"
   },
