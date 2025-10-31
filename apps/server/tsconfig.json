@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    // 输出配置
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    // 项目引用（Monorepo）
+    "composite": true,
+
+    // 类型定义
+    "types": ["node"]
+  },
+
+  // 编译范围
+  "include": ["src/**/*.mts"],
+  "exclude": ["node_modules", "dist"]
+}

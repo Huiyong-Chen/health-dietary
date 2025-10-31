@@ -1,0 +1,42 @@
+{
+  "name": "health-dietary",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "智能健康生活管理平台",
+  "scripts": {
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "health",
+    "dietary",
+    "fitness"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/types": "^20.0.0",
+    "@eslint/js": "^9.38.0",
+    "@types/node": "^24.9.2",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
+  }
+}
