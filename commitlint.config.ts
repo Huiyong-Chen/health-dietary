@@ -1,15 +1,16 @@
 /**
- * Commitlint 配置文件 (CommonJS 格式，使用 TypeScript)
+ * Commitlint 配置文件 (ESM 格式，使用 TypeScript)
  * 用途：规范 Git 提交信息格式
- * 格式：[emoji] <type>(<scope>): <subject> 或 <type>(<scope>): <subject>
+ * 格式：[emoji] <type>(<scope>): <subject>
  */
 
 import { type UserConfig } from '@commitlint/types';
 
 const config: UserConfig = {
   // 继承预设
-  extends: ['@commitlint/config-conventional'], // Conventional Commits 规范
-  // 自定义解析器选项
+  extends: ['@commitlint/config-conventional'],
+
+  // 自定义解析器选项（支持 gitemoji 前缀）
   parserPreset: {
     parserOpts: {
       // 支持 emoji 前缀的正则表达式
@@ -19,6 +20,7 @@ const config: UserConfig = {
       headerCorrespondence: ['emoji', 'type', 'scope', 'subject'],
     },
   },
+
   // 自定义规则
   rules: {
     // 允许的提交类型
@@ -43,9 +45,8 @@ const config: UserConfig = {
     // 主题大小写规则
     'subject-case': [0], // 禁用，允许任意大小写
 
-    // 允许 emoji
-    'header-max-length': [0], // 禁用标题长度限制（emoji 会增加字符数）
-    'type-empty': [0], // 允许 type 为空（支持纯 emoji 开头）
+    // 标题长度限制（考虑 emoji 占用字符）
+    'header-max-length': [2, 'always', 100], // 限制标题最大 100 字符
   },
 };
 
@@ -53,10 +54,10 @@ export default config;
 
 // 提交信息格式示例
 // ============================================================================
-// 标准格式：
-// feat(auth): 添加 JWT 认证功能
+// 标准格式（推荐带 gitemoji）：
+// [emoji] <type>(<scope>): <subject>
 //
-// 带 emoji 格式：
+// 示例：
 // ✨ feat(auth): 添加 JWT 认证功能
 // 🐛 fix(api): 修复用户注册接口错误
 // 📝 docs(readme): 更新安装说明
@@ -65,6 +66,11 @@ export default config;
 // ⚡️ perf(db): 优化查询性能
 // ✅ test(auth): 添加登录测试
 // 🔧 chore(deps): 升级依赖版本
+// 🎨 style(ui): 优化界面布局
+// 🔥 chore: 移除废弃代码
+//
+// 不带 emoji 也支持：
+// feat(auth): 添加 JWT 认证功能
 //
 // 详细提交信息：
 // ✨ feat(auth): 添加 JWT 认证功能
@@ -72,4 +78,16 @@ export default config;
 // 实现基于 JWT 的用户认证，支持设备类型检测和单点登录
 //
 // Closes #123
+//
+// 常用 Gitemoji 参考：
+// ✨ :sparkles: 新功能
+// 🐛 :bug: Bug 修复
+// 📝 :memo: 文档更新
+// 💄 :lipstick: UI/样式更新
+// ♻️ :recycle: 代码重构
+// ⚡️ :zap: 性能优化
+// ✅ :white_check_mark: 添加测试
+// 🔧 :wrench: 配置文件修改
+// 🎨 :art: 代码结构/格式优化
+// 🔥 :fire: 移除代码/文件
 // ============================================================================

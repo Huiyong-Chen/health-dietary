@@ -19,13 +19,13 @@ health-dietary/
 │       ├── package.json
 │       └── tsconfig.json
 ├── packages/                 # 共享包（待添加）
-├── prisma/                   # 数据库 Schema
+├── prisma/                   # 数据库 Schema（待添加）
 ├── docs/                     # 文档目录
 ├── .husky/                   # Git hooks
 ├── commitlint.config.ts      # Commitlint 配置
 ├── eslint.config.mts         # ESLint 配置
-├── lint-staged.config.ts     # Lint-staged 配置
-├── prettier.config.mts       # Prettier 配置
+├── lint-staged.config.mts    # Lint-staged 配置
+├── prettier.config.mjs       # Prettier 配置（.mjs 格式兼容 macOS）
 ├── tsconfig.json             # TypeScript 根配置
 ├── pnpm-workspace.yaml       # pnpm 工作空间配置
 └── package.json              # 根配置
@@ -82,7 +82,7 @@ packages:
     "target": "ES2022",
     "lib": ["ES2022"],
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": false,
     "strict": true,
@@ -175,12 +175,11 @@ export default defineConfig(
 
 ### 7. 配置 Prettier
 
-创建 `prettier.config.mts`：
+创建 `prettier.config.mjs`（使用 .mjs 格式以兼容 macOS）：
 
-```typescript
-import { type Config } from 'prettier';
-
-const config: Config = {
+```javascript
+/** @type {import("prettier").Config} */
+const config = {
   semi: true,
   singleQuote: true,
   trailingComma: 'all',
@@ -204,10 +203,10 @@ pnpm install
 echo "pnpm lint-staged" > .husky/pre-commit
 ```
 
-创建 `lint-staged.config.ts`：
+创建 `lint-staged.config.mts`：
 
 ```typescript
-import { Configuration } from 'lint-staged';
+import { type Configuration } from 'lint-staged';
 
 const config: Configuration = {
   '**/*.{ts,mts}': ['eslint --fix', 'prettier --write'],
@@ -219,13 +218,20 @@ export default config;
 
 ### 9. 配置 Commitlint
 
-创建 `commitlint.config.ts`：
+创建 `commitlint.config.ts`（支持 gitemoji 前缀）：
 
 ```typescript
 import { type UserConfig } from '@commitlint/types';
 
 const config: UserConfig = {
   extends: ['@commitlint/config-conventional'],
+  parserPreset: {
+    parserOpts: {
+      headerPattern:
+        /^(?:(?<emoji>[\p{Emoji_Presentation}\p{Extended_Pictographic}]+)\s)?(?<type>\w+)(?:\((?<scope>[\w-]+)\))?:\s(?<subject>.+)$/u,
+      headerCorrespondence: ['emoji', 'type', 'scope', 'subject'],
+    },
+  },
   rules: {
     'type-enum': [
       2,
@@ -245,6 +251,7 @@ const config: UserConfig = {
       ],
     ],
     'subject-case': [0],
+    'header-max-length': [2, 'always', 100],
   },
 };
 
@@ -260,6 +267,7 @@ echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
 
 ```
 .qoder/*
+nul
 
 node_modules/
 dist/
@@ -296,12 +304,17 @@ pnpm format:check
 
 ## 提交规范
 
-格式：`<type>(<scope>): <subject>`
+格式：`[emoji] <type>(<scope>): <subject>` 或 `<type>(<scope>): <subject>`
 
-**示例**：`feat(auth): 添加 JWT 认证功能`
+**示例**：
+
+- `✨ feat(auth): 添加 JWT 认证功能`（推荐）
+- `feat(auth): 添加 JWT 认证功能`
 
 **类型**：feat, fix, docs, style, refactor, perf, test, chore, revert, build, ci
 
+**常用 Gitemoji**：✨(新功能) 🐛(修复) 📝(文档) 💄(UI) ♻️(重构) ⚡️(性能) ✅(测试) 🔧(配置)
+
 ---
 
-**最后更新**：2025-10-31
+**最后更新**：2025-11-01

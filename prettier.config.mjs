@@ -1,5 +1,11 @@
-import { type Config } from 'prettier';
-const config: Config = {
+/**
+ * Prettier 配置文件 (ESM 格式)
+ * 用途：代码格式化规则
+ * 格式：.mjs (Prettier 3.x 兼容格式)
+ */
+
+/** @type {import("prettier").Config} */
+const config = {
   // 基础格式
   semi: true, // 使用分号
   singleQuote: true, // 使用单引号

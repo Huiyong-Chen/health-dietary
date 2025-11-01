@@ -45,9 +45,14 @@ health-dietary/
 ### 编码规范
 
 - **所有源代码文件使用 .mts 扩展名**（TypeScript ESM 模块）
-- **所有配置文件使用 .mts 格式**（eslint.config.mts、prettier.config.mts 等）
+- **配置文件格式**：
+  - TypeScript 配置优先使用 .mts（eslint.config.mts、lint-staged.config.mts 等）
+  - Prettier 配置使用 .mjs（macOS 兼容性）
+- **TypeScript 模块解析**：
+  - 根配置使用 `moduleResolution: "node"`（适配 Node.js 后端）
+  - 前端项目可覆盖为 `"Bundler"`（适配 Vite 打包）
 - 严格遵循 TypeScript strict 模式
-- Git 提交信息遵循 Conventional Commits 规范
+- Git 提交信息遵循 Conventional Commits 规范，支持 gitemoji 前缀
 
 ## 关键技术实现
 

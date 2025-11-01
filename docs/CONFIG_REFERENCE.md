@@ -37,27 +37,27 @@
 
 ### 根 tsconfig.json
 
-| 分类             | 配置项                             | 值           | 作用                          | 影响                                      |
-| ---------------- | ---------------------------------- | ------------ | ----------------------------- | ----------------------------------------- |
-| **语言和环境**   | `target`                           | `"ES2022"`   | 编译后的 JavaScript 版本      | 决定可使用的语法（如 top-level await）    |
-|                  | `lib`                              | `["ES2022"]` | 包含的标准库类型定义          | 决定可使用的全局 API（如 Array.at）       |
-| **模块系统**     | `module`                           | `"ESNext"`   | 生成的模块系统类型            | 使用最新 ES 模块标准（import/export）     |
-|                  | `moduleResolution`                 | `"Bundler"`  | 模块解析策略                  | 专为现代打包工具设计，支持更灵活的导入    |
-|                  | `resolveJsonModule`                | `true`       | 允许导入 JSON 文件            | 可以 `import config from './config.json'` |
-|                  | `allowJs`                          | `false`      | 是否允许编译 JS 文件          | 强制使用 TypeScript，确保类型安全         |
-| **类型检查**     | `strict`                           | `true`       | 启用所有严格检查              | 包含 strictNullChecks、noImplicitAny 等   |
-|                  | `noUnusedLocals`                   | `true`       | 禁止未使用的局部变量          | 强制清理无用代码                          |
-|                  | `noUnusedParameters`               | `true`       | 禁止未使用的函数参数          | 避免参数冗余                              |
-|                  | `noImplicitReturns`                | `true`       | 函数必须明确返回              | 避免部分代码路径缺少 return               |
-|                  | `noFallthroughCasesInSwitch`       | `true`       | 禁止 switch case 穿透         | 强制使用 break/return                     |
-| **互操作性约束** | `esModuleInterop`                  | `true`       | ES 模块与 CommonJS 互操作     | 允许 `import express from 'express'`      |
-|                  | `allowSyntheticDefaultImports`     | `true`       | 允许合成默认导入              | 改善模块导入体验                          |
-|                  | `isolatedModules`                  | `true`       | 确保每个文件可独立编译        | 兼容 Babel、esbuild 等工具                |
-|                  | `forceConsistentCasingInFileNames` | `true`       | 强制文件名大小写一致          | 避免跨平台导入路径错误                    |
-| **生成文件**     | `declaration`                      | `true`       | 生成 .d.ts 类型声明           | 其他项目引用时获得类型提示                |
-|                  | `declarationMap`                   | `true`       | 生成类型声明的 source map     | 调试时可跳转到 TS 源码                    |
-|                  | `sourceMap`                        | `true`       | 生成 JavaScript 的 source map | 调试器可显示 TS 源码                      |
-| **其他**         | `skipLibCheck`                     | `true`       | 跳过 .d.ts 文件检查           | 加快编译，避免第三方库类型错误            |
+| 分类             | 配置项                             | 值           | 作用                          | 影响                                                       |
+| ---------------- | ---------------------------------- | ------------ | ----------------------------- | ---------------------------------------------------------- |
+| **语言和环境**   | `target`                           | `"ES2022"`   | 编译后的 JavaScript 版本      | 决定可使用的语法（如 top-level await）                     |
+|                  | `lib`                              | `["ES2022"]` | 包含的标准库类型定义          | 决定可使用的全局 API（如 Array.at）                        |
+| **模块系统**     | `module`                           | `"ESNext"`   | 生成的模块系统类型            | 使用最新 ES 模块标准（import/export）                      |
+|                  | `moduleResolution`                 | `"node"`     | 模块解析策略                  | Node.js 风格解析，后端环境适用（前端项目可覆盖为 Bundler） |
+|                  | `resolveJsonModule`                | `true`       | 允许导入 JSON 文件            | 可以 `import config from './config.json'`                  |
+|                  | `allowJs`                          | `false`      | 是否允许编译 JS 文件          | 强制使用 TypeScript，确保类型安全                          |
+| **类型检查**     | `strict`                           | `true`       | 启用所有严格检查              | 包含 strictNullChecks、noImplicitAny 等                    |
+|                  | `noUnusedLocals`                   | `true`       | 禁止未使用的局部变量          | 强制清理无用代码                                           |
+|                  | `noUnusedParameters`               | `true`       | 禁止未使用的函数参数          | 避免参数冗余                                               |
+|                  | `noImplicitReturns`                | `true`       | 函数必须明确返回              | 避免部分代码路径缺少 return                                |
+|                  | `noFallthroughCasesInSwitch`       | `true`       | 禁止 switch case 穿透         | 强制使用 break/return                                      |
+| **互操作性约束** | `esModuleInterop`                  | `true`       | ES 模块与 CommonJS 互操作     | 允许 `import express from 'express'`                       |
+|                  | `allowSyntheticDefaultImports`     | `true`       | 允许合成默认导入              | 改善模块导入体验                                           |
+|                  | `isolatedModules`                  | `true`       | 确保每个文件可独立编译        | 兼容 Babel、esbuild 等工具                                 |
+|                  | `forceConsistentCasingInFileNames` | `true`       | 强制文件名大小写一致          | 避免跨平台导入路径错误                                     |
+| **生成文件**     | `declaration`                      | `true`       | 生成 .d.ts 类型声明           | 其他项目引用时获得类型提示                                 |
+|                  | `declarationMap`                   | `true`       | 生成类型声明的 source map     | 调试时可跳转到 TS 源码                                     |
+|                  | `sourceMap`                        | `true`       | 生成 JavaScript 的 source map | 调试器可显示 TS 源码                                       |
+| **其他**         | `skipLibCheck`                     | `true`       | 跳过 .d.ts 文件检查           | 加快编译，避免第三方库类型错误                             |
 
 ### 子项目 tsconfig.json (apps/server)
 
@@ -88,7 +88,7 @@
 
 ---
 
-## prettier.config.mts
+## prettier.config.mjs
 
 | 配置项          | 值         | 作用           | 示例                  | 影响                             |
 | --------------- | ---------- | -------------- | --------------------- | -------------------------------- |
@@ -105,14 +105,16 @@
 
 ## commitlint.config.ts
 
-| 配置           | 值                                    | 作用                      | 影响                                   |
-| -------------- | ------------------------------------- | ------------------------- | -------------------------------------- |
-| `extends`      | `['@commitlint/config-conventional']` | 继承 Conventional Commits | 强制 `<type>(<scope>): <subject>` 格式 |
-| `type-enum`    | 限制提交类型                          | 规范提交分类              | 只允许 feat、fix、docs 等类型          |
-| `subject-case` | `[0]` 禁用                            | 允许任意大小写            | 不限制提交主题的大小写格式             |
+| 配置                | 值                                    | 作用                      | 影响                                   |
+| ------------------- | ------------------------------------- | ------------------------- | -------------------------------------- |
+| `extends`           | `['@commitlint/config-conventional']` | 继承 Conventional Commits | 强制 `<type>(<scope>): <subject>` 格式 |
+| `parserPreset`      | 支持 emoji 前缀                       | 解析 gitemoji 格式        | 允许 `✨ feat: 新功能` 格式            |
+| `type-enum`         | 限制提交类型                          | 规范提交分类              | 只允许 feat、fix、docs 等类型          |
+| `subject-case`      | `[0]` 禁用                            | 允许任意大小写            | 不限制提交主题的大小写格式             |
+| `header-max-length` | `[2, 'always', 100]`                  | 标题长度限制              | 最大 100 字符（包含 emoji）            |
 
 **允许的提交类型**：feat, fix, docs, style, refactor, perf, test, chore, revert, build, ci
 
 ---
 
-**最后更新**：2025-10-31
+**最后更新**：2025-11-01
