@@ -12,9 +12,9 @@ import tseslint from 'typescript-eslint';
 export default defineConfig(
   // 忽略配置
   globalIgnores([
-    'node_modules/**', // 第三方依赖
-    'dist/**', // 编译输出
-    'build/**', // 构建产物
+    '**/node_modules/**', // 第三方依赖
+    '**/dist/**', // 编译输出
+    '**/build/**', // 构建产物
     '.qoder/**', // 工具目录
   ]),
   {
